@@ -1,22 +1,18 @@
 export default interface EnergyMeasure {
-  timestamp: Date,
-  server: {
-    tag: string
-  },
-  type: string,
-  measures: {
-    device: {
-      tag: string
-    },
+  time_stamp: String,
+  server_tag: string,
+  telemetry_type: string,
+  measures: Measure[]
+}
+
+interface Measure {
+  device_tag: string,
     values: {
       consumption: {
-        real: number[],
-        reactive: number[]
+        real: number,
       },
-      demand: {
-        real: number[],
-        reactive: number[]
+      totalizer: {
+        real: number
       }
     }
-  }
 }
