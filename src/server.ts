@@ -18,7 +18,7 @@ connectToDb();
 
 registerDependencies();
 
-app.get('/', (request, response) => {
+app.get('/api/teste', (request, response) => {
   const useCase = container.resolve(GetConsumptionByPeriodUseCase);
   const output = useCase.execute({
     device: 'oiasdoi',
@@ -29,7 +29,7 @@ app.get('/', (request, response) => {
   response.send(output);
 });
 
-app.post('/', async (request, response) => {
+app.post('/api/insert', async (request, response) => {
   try {
     const useCase = container.resolve(InsertMeasureUseCase);
     const id = await useCase.execute(request.body as EnergyMeasure);
